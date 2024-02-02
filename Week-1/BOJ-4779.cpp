@@ -35,6 +35,7 @@ void DivideAndConquer(int startPos, int n, string& str)
 	{
 		return;
 	}
+	
 	// 3^n 이므로 3번씩 재귀
 	// 중앙 지점은 비워주어야 함.
 	DivideAndConquer(startPos, n / 3, str);				// 첫번째 지점
