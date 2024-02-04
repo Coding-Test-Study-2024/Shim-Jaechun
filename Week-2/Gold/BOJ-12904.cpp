@@ -15,8 +15,8 @@
 
 //     dp 풀이 - 시간초과
 // 그리디 풀이
-//				메모리 : 2024KB
-//				  시간 : 0ms
+//				: 메모리 2024KB
+//				:   시간 0ms
 
 #include <iostream>
 #include <queue>
@@ -30,7 +30,7 @@ string s, t;
 int main()
 {
 	cin >> s >> t;
-	
+
 	while (s.length() < t.length())
 	{
 		if (s.back() != t.back())
@@ -41,6 +41,15 @@ int main()
 				reverse(t.begin(), t.end());
 			}
 			else t.pop_back();
+		}
+		else
+		{
+			if (t.back() == 'A') t.pop_back();
+			else
+			{
+				t.pop_back();
+				reverse(t.begin(), t.end());
+			}
 		}
 	}
 	ret = s == t ? 1 : 0;
