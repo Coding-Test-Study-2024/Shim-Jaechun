@@ -2,6 +2,10 @@
 
 // 영역의 개수가 4개로 나누어진 경우 3등을 뽑는다
 
+// <성공>
+// 메모리 : 6124KB
+//   시간 : 144ms
+
 #include <iostream>
 #include <algorithm>
 using namespace std;
