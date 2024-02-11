@@ -42,6 +42,10 @@ int n, cnt;
 
 int main()
 {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	cin >> n;
 	for (int i = 0; i < n; i++)
 	{
@@ -57,9 +61,12 @@ int main()
 	cnt++;
 	for (int i = 1; i < vec.size(); i++)
 	{
-		if (pq.empty()) cnt++;
-		else if (pq.top() > vec[i].first) cnt++;
-		else pq.pop();
+		if (pq.empty()) 
+			cnt++;
+		else if (pq.top() > vec[i].first) 
+			cnt++;
+		else 
+			pq.pop();
 
 		pq.push(vec[i].second);
 	}
