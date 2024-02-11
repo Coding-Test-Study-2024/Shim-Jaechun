@@ -27,24 +27,43 @@ using namespace std;
 int ret = 0;
 string s, t;
 
+// S - A
+
+// T - ABBA
+
 int main()
 {
 	cin >> s >> t;
 
+	// 문자열의 길이가 서로 같아지면 종료
 	while (s.length() < t.length())
 	{
+		// 행동
+		//	1. 뒤에 A삭제
+		//	2. B삭제 후 뒤집기
+		//  *지금 상태에서 할 수 있는 행동만 실행
+
+		// 뒤의 문자가 같지 않은 경우 빼야함.
 		if (s.back() != t.back())
 		{
-			if (s.back() == 'A')
+			// T의 뒷부분 문자가 B고
+			// S의 뒷부분 문자가 A라면 2번 진행
+			if (t.back() == 'B')	
 			{
 				t.pop_back();
 				reverse(t.begin(), t.end());
 			}
-			else t.pop_back();
+			// 아니라면 1번 진행
+			else 
+				t.pop_back();
 		}
+		// 뒤의 문자가 같은 경우
 		else
 		{
-			if (t.back() == 'A') t.pop_back();
+			// T의 뒷부분 문자가 A라면 1번 진행
+			if (t.back() == 'A') 
+				t.pop_back();
+			// 아니라면 2번 진행
 			else
 			{
 				t.pop_back();
@@ -52,6 +71,7 @@ int main()
 			}
 		}
 	}
+
 	ret = s == t ? 1 : 0;
 	cout << ret << '\n';
 	return 0;

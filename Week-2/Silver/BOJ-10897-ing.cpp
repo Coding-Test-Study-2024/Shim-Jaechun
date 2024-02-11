@@ -27,6 +27,8 @@ void go(int number, int k, int parentCnt)
 {
 	if (k >= d) return;
 
+	a + b = temp;
+
 	// k의 di[k]번째 자식 찾기
 	// s(n) = n+1 * s(n-1)
 	if (k == 0)
