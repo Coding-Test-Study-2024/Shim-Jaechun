@@ -26,7 +26,7 @@ int solution(vector<vector<string>> book_time) {
     int answer = 0;
 
     vector<pair<int, int>> bTime;
-    priority_queue<int, vector<int>, greater<>> pq;
+    priority_queue<int, vector<int>, greater<>> pq; // 최소힙 사용
 
     for (int i = 0; i < book_time.size(); i++)
     {
