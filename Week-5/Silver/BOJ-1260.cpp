@@ -17,8 +17,9 @@
 #include <vector>
 #include <queue>
 #include <stack>
+using namespace std;
 
-std::vector<int> Node[1001];
+vector<int> Node[1001];
 bool visited[1001];
 
 void DFS(int start_node)
@@ -26,9 +27,9 @@ void DFS(int start_node)
 	// ver. 재귀함수 사용 
 	visited[start_node] = 1;
 
-	std::cout << start_node << " ";
+	cout << start_node << " ";
 
-	for (std::vector<int>::iterator iter = Node[start_node].begin();
+	for (vector<int>::iterator iter = Node[start_node].begin();
 		iter < Node[start_node].end();
 		iter++)	// 오름차순으로 정렬된 벡터의 첫번째 요소는 다음 탐색할 노드.
 
@@ -42,7 +43,7 @@ void DFS(int start_node)
 	// -----------------------
 
 	// ver. 스택 사용
-	//std::stack<int> neighbor;			// 인접한 노드를 담을 스택 생성
+	//stack<int> neighbor;			// 인접한 노드를 담을 스택 생성
 
 	//neighbor.push(start_node);			// 탐색을 시작할 노드 push
 
@@ -50,7 +51,7 @@ void DFS(int start_node)
 	//{
 	//	visited[neighbor.top()] = 1;	// 스택의 최상위 노드에 방문을 체크
 
-	//	std::cout << neighbor.top() << " ";
+	//	cout << neighbor.top() << " ";
 
 	//	int temp = neighbor.top();		// 최상위 노드를 복사
 
@@ -73,7 +74,7 @@ void DFS(int start_node)
 }
 void BFS(int start_node)
 {
-	std::queue<int> neighbor;	// 인접한 노드들을 담을 큐
+	queue<int> neighbor;	// 인접한 노드들을 담을 큐
 
 	neighbor.push(start_node);	// 큐에 시작 노드 삽입
 
@@ -83,9 +84,9 @@ void BFS(int start_node)
 		{
 			visited[neighbor.front()] = 1;	// 해당 노드 방문 체크
 
-			std::cout << neighbor.front() << " ";
+			cout << neighbor.front() << " ";
 
-			for (std::vector<int>::iterator iter2 = Node[neighbor.front()].begin();
+			for (vector<int>::iterator iter2 = Node[neighbor.front()].begin();
 				iter2 != Node[neighbor.front()].end();
 				++iter2)					// 인접한 노드를 모두 큐에 삽입
 			{
@@ -108,14 +109,14 @@ int main()
 
 	// 입력 순
 	// 정점, 간선, 시작 정점
-	std::cin >> N >> M >> V;
+	cin >> N >> M >> V;
 
 	for (int i = 0; i < M; i++)
 	{
 		int start_node = 0;
 		int end_node = 0;
 
-		std::cin >> start_node >> end_node;
+		cin >> start_node >> end_node;
 
 		// ex) 간선 1, 2
 		// {1, 2}, {2, 1}
@@ -129,13 +130,13 @@ int main()
 		// 벡터를 오름차순으로 정렬
 		if (!Node[i].empty())
 		{
-			std::sort(Node[i].begin(), Node[i].end());
+			sort(Node[i].begin(), Node[i].end());
 		}
 	}
 
 	DFS(V);
 
-	std::cout << std::endl;
+	cout << endl;
 
 	// 방문한 노드를 담은 배열 초기화
 	for (int i = 0; i < sizeof(visited) / sizeof(bool); i++)
