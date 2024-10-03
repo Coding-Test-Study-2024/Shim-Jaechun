@@ -11,6 +11,8 @@ public class BOJ_2178
     //    탐색 중 최단거리를 계속 누적할 것임.
     static int[,] map = new int[101, 101], visited = new int[101, 101];
 
+    // 최단거리, 영역을 구해라
+
     // 에이전트가 향할 수 있는 방향 설정
     //  - 상하좌우 4방향
     static int[] dx = new int[4] { 1, -1, 0, 0 };
