@@ -22,6 +22,8 @@ class Program
             return new Pos(p1.x + p2.x, p1.y + p2.y);
         }
     }
+
+    // 우, 좌, 하, 상 4방향
     static Pos[] dir = { new Pos(1, 0), new Pos(-1, 0), new Pos(0, 1), new Pos(0, -1) };
 
     static void BFS(int[,] map, bool[,] visited, int y, int x)
@@ -36,11 +38,14 @@ class Program
             for (int i = 0; i < 4; i++)
             {
                 Pos next = cur + dir[i];
+                // 범위를 벗어난 경우
                 if (next.x < 0 || next.x >= visited.GetLength(1)
                     || next.y < 0 || next.y >= visited.GetLength(0))
                     continue;
+                // 이미 방문한 경우
                 if (visited[next.y, next.x])
                     continue;
+                // 배추가 아닌 경우
                 if (map[next.y, next.x] != 1)
                     continue;
 
@@ -62,7 +67,9 @@ class Program
                 if (visited[y, x] == true) continue;
                 if (map[y, x] != 1) continue;
 
+                // 방문하지 않은 좌표에서 시작해 인접한 좌표에 모두 방문체크
                 BFS(map, visited, y, x);
+                // 한 영역에 대한 탐색이 종료된 이후 ++
                 answer++;
             }
         }
