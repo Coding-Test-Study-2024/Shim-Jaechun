@@ -25,11 +25,14 @@ namespace 백준1697번_숨바꼭질
             //Array.Fill(dp, -1);
             dp[n] = 1;
 
+            // 99999 * 2
+
             Queue<int> q = new Queue<int>();
             q.Enqueue(n);
             while (q.Count > 0)
             {
                 int cur = q.Dequeue();
+                
                 for (int i = 0; i < 3; i++)
                 {
                     int next = moveOper[i](cur);
