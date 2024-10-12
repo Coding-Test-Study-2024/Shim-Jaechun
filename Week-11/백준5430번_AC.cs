@@ -7,6 +7,8 @@ namespace 백준5430번_AC
     {
         static List<int> solution(string p, int n, int[] arr)
         {
+            // 배열의 왼쪽 포인터와 오른쪽 포인터 설정
+            // R 입력 시 뒤집음
             List<int> answer = new List<int>();
             int l = 0;
             int r = arr == null ? -1 : arr.Length - 1;
@@ -49,10 +51,13 @@ namespace 백준5430번_AC
                 string p = Console.ReadLine();
                 int n = int.Parse(Console.ReadLine());
                 string tempArr = Console.ReadLine().Trim('[', ']');
+                // 예외
+                // ex) "[]"
                 int[] arr =
                     string.IsNullOrEmpty(tempArr) ? null
                     : tempArr.Split(",").Select(int.Parse).ToArray();
 
+                // 출력 값이 없을 때 "[]" 출력 해야함;
                 List<int> answer = solution(p, n, arr);
                 if (answer != null)
                 {
@@ -62,7 +67,9 @@ namespace 백준5430번_AC
                         answers.Append(i > 0 ? $",{answer[i]}" : answer[i]);
                     }
                     answers.Append(']');
-                    if (t > 0) answers.AppendLine();
+                    // 마지막 케이스가 아닐경우 줄바꿈 추가
+                    if (t > 0) 
+                        answers.AppendLine();
                 }
                 else
                 {
